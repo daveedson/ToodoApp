@@ -15,6 +15,8 @@ class _TaskScreenState extends State<TaskScreen> {
     Task(name: 'Go to market'),
     Task(name: 'Play Video games'),
   ];
+
+  //method to display Modal bottomsheet
   Widget BuildBottomSheet(BuildContext context) {
     return Container(
       color: Color(0xFF757575),
