@@ -44,10 +44,11 @@ class TaskScreen extends StatelessWidget {
               ),
               FlatButton(
                 onPressed: () {
-                  print(newTaskTitile);
+                 Provider.of<TaskData>(context, listen: false).addTask(newTaskTitile);
+                 Navigator.pop(context);
                 },
                 child: Text(
-                  'Add',
+                  'Add ',
                   style: TextStyle(color: Colors.white),
                 ),
                 color: Colors.indigoAccent,
