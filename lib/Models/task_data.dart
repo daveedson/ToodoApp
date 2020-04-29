@@ -15,6 +15,7 @@ class TaskData extends ChangeNotifier{
 //getter for List<Task>
   List<Task> get tasks => _tasks;
 
+//method to add a new task.
  void addTask(String newTaskTitle){
 
    final task =Task(name:newTaskTitle);
@@ -23,9 +24,18 @@ class TaskData extends ChangeNotifier{
    
  }
 
+//method to update tasks after typing in the textField.
  void updateTask(Task task){
    task.toggelDone();
    notifyListeners();
  }
 
+//method to delete  tasks
+  void deleteTask(Task task){
+
+    _tasks.remove(task);
+    notifyListeners();
+
+
+  }
 }
