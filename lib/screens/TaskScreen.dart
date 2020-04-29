@@ -1,26 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:todos/Models/tasks.dart';
+import 'package:provider/provider.dart';
+import 'package:todos/Models/task_data.dart';
 import 'package:todos/widgets/Task_list.dart';
 
-class TaskScreen extends StatefulWidget {
-  @override
-  _TaskScreenState createState() => _TaskScreenState();
-}
+class TaskScreen extends StatelessWidget {
 
-class _TaskScreenState extends State<TaskScreen> {
   String newTaskTitile;
-  List<Task> tasks = [
-    Task(name: 'Buy Milk'),
-    Task(name: 'Buy Suya'),
-    Task(name: 'Go to market'),
-    Task(name: 'Play Video games'),
-  ];
-
+  
   //method to display Modal bottomsheet
   Widget BuildBottomSheet(BuildContext context) {
     return Container(
       color: Color(0xFF757575),
-      child: Container(
+      child: Container( 
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
@@ -112,7 +103,7 @@ class _TaskScreenState extends State<TaskScreen> {
                       color: Colors.white),
                 ),
                 Text(
-                  '12 Tasks',
+                  '${Provider.of<TaskData>(context).tasks.length} Tasks',
                   style: TextStyle(
                     fontWeight: FontWeight.w400,
                     color: Colors.white,
@@ -131,7 +122,7 @@ class _TaskScreenState extends State<TaskScreen> {
                   topRight: Radius.circular(25.0),
                 ),
               ),
-              child: TaskList(tasks),
+              child: TaskList(),
             ),
           )
         ],
